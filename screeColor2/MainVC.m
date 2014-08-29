@@ -11,7 +11,6 @@
 }
 
 - (void)loadView {
-    [self setWantsFullScreenLayout:YES];
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     buttons = @[[self addButton:[UIColor greenColor] atPosition:0],
@@ -25,6 +24,13 @@
     }];
 
 }
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [UIApplication sharedApplication].statusBarHidden = YES;
+    self.navigationController.navigationBarHidden = YES;
+}
+
 
 - (UIButton *)addButton:(UIColor *)color atPosition:(int)y {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
