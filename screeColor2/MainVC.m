@@ -13,12 +13,12 @@
 - (void)loadView {
     self.view = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    buttons = @[[self addButton:[UIColor greenColor] atPosition:0],
-        [self addButton:[UIColor redColor] atPosition:70],
-        [self addButton:[UIColor whiteColor] atPosition:140],
-        [self addButton:[UIColor blackColor] atPosition:210],
-        [self addButton:[UIColor blueColor] atPosition:280],
-        [self addButton:[UIColor yellowColor] atPosition:350]];
+    buttons = @[[self addButton:[UIColor greenColor] withTag:0],
+        [self addButton:[UIColor redColor] withTag:1],
+        [self addButton:[UIColor whiteColor] withTag:2],
+        [self addButton:[UIColor blackColor] withTag:3],
+        [self addButton:[UIColor blueColor] withTag:4],
+        [self addButton:[UIColor yellowColor] withTag:5]];
     [buttons enumerateObjectsUsingBlock:^(UIButton *btn, NSUInteger idx, BOOL *stop) {
         [self.view addSubview:btn];
     }];
@@ -32,9 +32,9 @@
 }
 
 
-- (UIButton *)addButton:(UIColor *)color atPosition:(int)y {
+- (UIButton *)addButton:(UIColor *)color withTag:(int)y {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    button.frame = CGRectMake(10, 100 + y, 300, 50);
+    button.frame = CGRectMake(10, 100 + y*70, 300, 50);
     button.backgroundColor = color;
     button.layer.borderColor = [UIColor redColor].CGColor;
     button.layer.borderWidth = 1.0f;
