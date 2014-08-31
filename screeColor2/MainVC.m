@@ -18,7 +18,8 @@
         [self addButton:[UIColor whiteColor] withTag:2],
         [self addButton:[UIColor blackColor] withTag:3],
         [self addButton:[UIColor blueColor] withTag:4],
-        [self addButton:[UIColor yellowColor] withTag:5]];
+        [self addButton:[UIColor yellowColor] withTag:5],
+        [self addButton:[UIColor purpleColor] withTag:6]];
     [buttons enumerateObjectsUsingBlock:^(UIButton *btn, NSUInteger idx, BOOL *stop) {
         [self.view addSubview:btn];
     }];
@@ -34,7 +35,7 @@
 
 - (UIButton *)addButton:(UIColor *)color withTag:(int)y {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-    button.frame = CGRectMake(10, 100 + y*70, 300, 50);
+    button.frame = CGRectMake(10, 30 + y * 70, 300, 50);
     button.backgroundColor = color;
     button.layer.borderColor = [UIColor redColor].CGColor;
     button.layer.borderWidth = 1.0f;
@@ -62,8 +63,7 @@
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
-    if (motion == UIEventSubtypeMotionShake)
-    {
+    if (motion == UIEventSubtypeMotionShake) {
         NSLog(@"shake..");
         [buttons enumerateObjectsUsingBlock:^(UIButton *btn, NSUInteger idx, BOOL *stop) {
             btn.hidden = FALSE;
